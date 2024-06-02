@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SSE Event Stream Example</title>
+  </head>
+  <body>
+
+    <div id="chatInfo">天才
+    <div >天才</div>
+    </div>
+    <script>
+      let chatInfoDiv = document.getElementById('chatInfo');
+      let source = new EventSource("/gpt");
+      source.onmessage = function(event) {
+    // 处理其他消息
+        if (event.data == "done") {
+            chatInfoDiv.textContent += "离谱";
+        } else {
+            chatInfoDiv.textContent += event.data;
+        }
+    };
+    </script>
+  </body>
+</html>

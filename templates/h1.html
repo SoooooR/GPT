@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内容显示</title>
+    <style>
+        .container {
+          height: 70vh;
+          display: flex;
+          justify-content: center;
+        }
+
+        .box {
+            width: 90%;
+            border: 1px solid black;
+            height: 90%;
+            overflow: scroll;
+            padding: 10px;
+            scroll-behavior: smooth;
+
+        }
+
+        .T1 {
+          height: 22vh;
+          display: flex;
+          justify-content: center;
+        }
+
+        .t1 {
+            width: 90%;
+            border: 1px solid black;
+            height: 90%;
+            overflow: scroll;
+            padding: 10px;
+
+        }
+        .text{
+            vertical-align:top;
+        }
+
+    </style>
+
+
+</head>
+<body style="overflow-x:hidden">
+<div class="container">
+    <div class="box" id="scroll-to-bottom">
+    <ul>
+        <li><p>你好，小北在此，客官有何贵干？</p></li>
+        {% for item in total %}
+            {% if not loop.last %}
+                <li><p>{{ item }}</p></li>
+            {% endif %}
+        {% endfor %}
+        <li><p>{{ content }}</p></li>
+    </ul>
+    </div>
+</div>
+    <script>
+		let scroll_to_bottom = document.getElementById('scroll-to-bottom');
+		scroll_to_bottom.scrollTop = scroll_to_bottom.scrollHeight;
+	</script>
+
+<p> </p><p> </p><p> </p><p> </p>
+    <div class="T1">
+    <div class="t1">
+        <form id="1" action = "/h1" method = "post">
+                <label class="itemTitle">you:</label>
+                <textarea id="s" class="text" placeholder="回车发送" name = "name" cols="130" rows="7"></textarea>
+        </form>
+
+        <script>
+        document.getElementById("s").addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) { // 按下回车键的键码是13
+                event.preventDefault(); // 阻止回车键的默认行为
+                document.getElementById("1").submit(); // 提交表单
+                }
+      });
+        </script>
+
+    </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSE Example</title>
+</head>
+<body>
+    <div id="sse-output">
+        <div>
+            <textarea  name = "name" rows="8" cols="60" ></textarea>
+        </div>
+    </div>
+
+    <script>
+        // 创建一个新的EventSource实例，连接到SSE端点
+        var source = new EventSource('/gpt');
+
+        // 监听message事件
+        source.onmessage = function(event) {
+            // 将接收到的数据插入到<div>元素中
+            var outputDiv = document.getElementById('sse-output');
+            // 这里可以根据需要添加不同的展示逻辑，比如追加内容、清空内容等
+            outputDiv.innerHTML = event.data  + outputDiv.innerHTML;
+        };
+
+
+    </script>
+</body>
+</html>

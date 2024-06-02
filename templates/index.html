@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shanta</title>
+    <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .text { word-wrap: break-word;}
+    .size
+    {font-size:24px;
+    vertical-align:top
+    }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <form id="1" action = "/h1" method = "post">
+        <label class="itemTitle">you:</label>
+        <textarea id="s" class="size" name = "name" rows="8" cols="60" ></textarea>
+    </form>
+
+    <script>
+  document.getElementById("s").addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) { // 按下回车键的键码是13
+      event.preventDefault(); // 阻止回车键的默认行为
+      document.getElementById("1").submit(); // 提交表单
+        }
+      });
+    </script>
+
+    </div>
+</body>
+</html>
