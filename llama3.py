@@ -26,7 +26,7 @@ def h1():
     text = ""
     client = OpenAI(
       base_url="https://integrate.api.nvidia.com/v1",
-      api_key="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"
+      api_key=""
     )
     completion = client.chat.completions.create(
       model="meta/llama3-70b-instruct",
